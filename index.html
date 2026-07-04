@@ -16,6 +16,21 @@
       --accent-2: #28705f;
       --paper: #ffffff;
       --screen: #f4f6f8;
+      --screen-wash-top: rgb(255 255 250 / 0.36);
+      --screen-wash-bottom: rgb(255 255 250 / 0.46);
+      --heading: #101827;
+      --subheading: #243044;
+      --strong: #172033;
+      --marker: #697789;
+      --date: #8792a3;
+      --date-soft: #939cab;
+      --rule: #cfd9e3;
+      --rule-strong: #d5dee8;
+      --shadow-ambient: rgb(23 32 51 / 0.13);
+      --shadow-close: rgb(23 32 51 / 0.08);
+      --edge-highlight: rgb(255 255 255 / 0.82);
+      --contact-label: #8a96a8;
+      --contact-value: #334155;
     }
 
     * {
@@ -24,6 +39,14 @@
 
     html {
       background: var(--screen);
+      background-image:
+        linear-gradient(var(--screen-wash-top), var(--screen-wash-bottom)),
+        url("./resume-2026-bg.png");
+      background-position: center top;
+      background-size: auto, cover;
+      background-attachment: fixed;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
     }
 
     body {
@@ -42,8 +65,11 @@
       margin: 24px auto;
       padding: 15mm 18mm;
       background: var(--paper);
-      border: 1px solid var(--line);
-      box-shadow: 0 20px 50px rgb(23 32 51 / 0.08);
+      border: 0;
+      box-shadow:
+        0 28px 80px var(--shadow-ambient),
+        0 6px 18px var(--shadow-close),
+        inset 0 0 0 1px var(--edge-highlight);
     }
 
     h1,
@@ -59,7 +85,7 @@
       margin: 0 0 14px;
       font-size: 38px;
       font-weight: 780;
-      color: #101827;
+      color: var(--heading);
     }
 
     .contact-list {
@@ -69,7 +95,7 @@
       margin: 0 0 30px;
       padding: 15px 0 16px;
       list-style: none;
-      border-top: 2px solid #d5dee8;
+      border-top: 2px solid var(--rule-strong);
       border-bottom: 1px solid var(--line);
     }
 
@@ -90,14 +116,14 @@
 
     .contact-label {
       flex: 0 0 auto;
-      color: #8a96a8;
+      color: var(--contact-label);
       font-size: 12px;
       font-weight: 560;
     }
 
     .contact-value {
       min-width: 0;
-      color: #334155;
+      color: var(--contact-value);
       font-weight: 600;
       font-variant-numeric: tabular-nums;
     }
@@ -108,12 +134,12 @@
       gap: 10px;
       margin: 38px 0 18px;
       padding: 0 0 10px;
-      border-bottom: 1px solid #cfd9e3;
+      border-bottom: 1px solid var(--rule);
       border-radius: 0;
       background: transparent;
       font-size: 23px;
       font-weight: 800;
-      color: #101827;
+      color: var(--heading);
     }
 
     h2::before {
@@ -161,13 +187,13 @@
       align-items: center;
       flex: 0 0 auto;
       white-space: nowrap;
-      color: #8792a3;
+      color: var(--date);
       font-size: 0.78em;
       font-weight: 400;
     }
 
     h4.inline-meta-heading .heading-date {
-      color: #939cab;
+      color: var(--date-soft);
       font-size: 0.82em;
       font-weight: 400;
     }
@@ -178,7 +204,7 @@
       border-bottom: 0;
       font-size: 16.5px;
       font-weight: 720;
-      color: #243044;
+      color: var(--subheading);
     }
 
     h5 {
@@ -221,11 +247,11 @@
     }
 
     li::marker {
-      color: #697789;
+      color: var(--marker);
     }
 
     strong {
-      color: #172033;
+      color: var(--strong);
       font-weight: 700;
     }
 
@@ -242,7 +268,7 @@
 
     .education-item span {
       flex: 0 0 auto;
-      color: #8792a3;
+      color: var(--date);
       font-size: 13px;
       font-weight: 400;
       font-variant-numeric: tabular-nums;
@@ -283,7 +309,8 @@
     @media print {
       html,
       body {
-        background: #ffffff;
+        background: var(--paper);
+        background-image: none;
       }
 
       body {
