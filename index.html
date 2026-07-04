@@ -37,7 +37,7 @@
 
     .page {
       width: 210mm;
-      max-width: calc(100% - 32px);
+      max-width: none;
       min-height: 297mm;
       margin: 24px auto;
       padding: 15mm 18mm;
@@ -268,34 +268,10 @@
       font-weight: 680;
     }
 
-    @media (max-width: 700px) {
+    @media screen {
+      html,
       body {
-        font-size: 14px;
-      }
-
-      .page {
-        margin: 0;
-        padding: 26px 20px 34px;
-        border: 0;
-        box-shadow: none;
-      }
-
-      h1 {
-        font-size: 29px;
-      }
-
-      h2 {
-        font-size: 18px;
-      }
-
-      h3.split-heading,
-      h4.split-heading {
-        flex-wrap: wrap;
-        gap: 4px 12px;
-      }
-
-      h4.inline-meta-heading {
-        gap: 2px 8px;
+        min-width: calc(210mm + 48px);
       }
     }
 
